@@ -1,0 +1,145 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    networks:
+      - app-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    networks:
+      - app-network
+
+  api-gateway:
+    build: ./services/api-gateway
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - auth-service
+      - user-service
+    environment:
+      AUTH_SERVICE_URL: http://auth-service:3001
+      USER_SERVICE_URL: http://user-service:3002
+    networks:
+      - app-network
+
+  auth-service:
+    build: ./services/auth-service
+    restart: always
+    ports:
+      - "3001:3001"
+    depends_on:
+      - mongodb
+    environment:
+      MONGODB_URI: mongodb://${MONGO_USER}:${MONGO_PASSWORD}@mongodb:27017/auth_db?authSource=admin
+    networks:
+      - app-network
+
+  user-service:
+    build: ./services/user-service
+    restart: always
+    ports:
+      - "3002:3002"
+    depends_on:
+      - mongodb
+    environment:
+      MONGODB_URI: mongodb://${MONGO_USER}:${MONGO_PASSWORD}@mongodb:27017/user_db?authSource=admin
+    networks:
+      - app-network
+
+  product-service:
+    build: ./services/product-service
+    restart: always
+    ports:
+      - "3003:3003"
+    depends_on:
+      - mongodb
+    environment:
+      MONGODB_URI: mongodb://${MONGO_USER}:${MONGO_PASSWORD}@mongodb:27017/product_db?authSource=admin
+    networks:
+      - app-network
+
+  restaurant-service:
+    build: ./services/restaurant-service
+    restart: always
+    ports:
+      - "3004:3004"
+    depends_on:
+      - mongodb
+    environment:
+      MONGODB_URI: mongodb://${MONGO_USER}:${MONGO_PASSWORD}@mongodb:27017/restaurant_db?authSource=admin
+    networks:
+      - app-network
+
+  cart-service:
+    build: ./services/cart-service
+    restart: always
+    ports:
+      - "3005:3005"
+    depends_on:
+      - redis
+    environment:
+      REDIS_URL: redis://redis:6379
+    networks:
+      - app-network
+
+  order-service:
+    build: ./services/order-service
+    restart: always
+    ports:
+      - "3006:3006"
+    depends_on:
+      - mongodb
+    networks:
+      - app-network
+
+  payment-service:
+    build: ./services/payment-service
+    restart: always
+    ports:
+      - "3007:3007"
+    depends_on:
+      - mongodb
+    networks:
+      - app-network
+
+  notification-service:
+    build: ./services/notification-service
+    restart: always
+    ports:
+      - "3008:3008"
+    networks:
+      - app-network
+
+  frontend:
+    build: ./frontend
+    restart: always
+    ports:
+      - "3009:3000"
+    depends_on:
+      - api-gateway
+    networks:
+      - app-network
+
+volumes:
+  mongodb_data:
+
+networks:
+  app-network:
+    driver: bridge
