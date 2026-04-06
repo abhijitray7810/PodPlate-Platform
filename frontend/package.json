@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@tanstack/react-query": "^5.96.2",
+    "axios": "^1.14.0",
+    "lucide-react": "^1.7.0",
+    "zustand": "^5.0.12"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2"
+  }
+}
