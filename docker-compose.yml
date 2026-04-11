@@ -1,0 +1,250 @@
+name: podplate-platform
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - SERVICE_NAME=frontend
+      - NEXT_PUBLIC_API_URL=http://localhost:3001
+      - NEXT_PUBLIC_API_GATEWAY_URL=http://localhost:3001
+    depends_on:
+      - api-gateway
+    networks:
+      - podplate-network
+    restart: unless-stopped
+
+  api-gateway:
+    build:
+      context: ./services
+      dockerfile: api-gateway/Dockerfile
+    ports:
+      - "3001:3000"
+    environment:
+      - SERVICE_NAME=api-gateway
+      - NODE_ENV=development
+      - FRONTEND_URL=http://localhost:3000
+      - AUTH_SERVICE_URL=http://auth-service:3001
+      - USER_SERVICE_URL=http://user-service:3002
+      - PRODUCT_SERVICE_URL=http://product-service:3003
+      - RESTAURANT_SERVICE_URL=http://restaurant-service:3004
+      - CART_SERVICE_URL=http://cart-service:3005
+      - ORDER_SERVICE_URL=http://order-service:3006
+      - PAYMENT_SERVICE_URL=http://payment-service:3007
+      - NOTIFICATION_SERVICE_URL=http://notification-service:3008
+      - JWT_SECRET=your_jwt_secret_here
+    depends_on:
+      - auth-service
+      - product-service
+      - restaurant-service
+    networks:
+      - podplate-network
+    restart: unless-stopped
+
+  auth-service:
+    build:
+      context: ./services
+      dockerfile: auth-service/Dockerfile
+    ports:
+      - "3002:3001"
+    environment:
+      - SERVICE_NAME=auth-service
+      - NODE_ENV=development
+      - FRONTEND_URL=http://localhost:3000
+      - MONGODB_URI=mongodb://admin:adminpassword@mongo:27017/podplate_auth?authSource=admin
+      - REDIS_URL=redis://:podplate_redis_pass@redis:6379
+      - JWT_SECRET=your_jwt_secret_here
+      - JWT_REFRESH_SECRET=your_refresh_secret_here
+    depends_on:
+      mongo:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - podplate-network
+    restart: unless-stopped
+
+  user-service:
+    build:
+      context: ./services
+      dockerfile: user-service/Dockerfile
+    ports:
+      - "3003:3002"
+    environment:
+      - SERVICE_NAME=user-service
+      - NODE_ENV=development
+      - FRONTEND_URL=http://localhost:3000
+      - MONGODB_URI=mongodb://admin:adminpassword@mongo:27017/podplate_users?authSource=admin
+      - JWT_SECRET=your_jwt_secret_here
+    depends_on:
+      mongo:
+        condition: service_healthy
+    networks:
+      - podplate-network
+    restart: unless-stopped
+
+  product-service:
+    build:
+      context: ./services
+      dockerfile: product-service/Dockerfile
+    ports:
+      - "3004:3003"
+    environment:
+      - SERVICE_NAME=product-service
+      - NODE_ENV=development
+      - FRONTEND_URL=http://localhost:3000
+      - MONGODB_URI=mongodb://admin:adminpassword@mongo:27017/podplate_products?authSource=admin
+      - JWT_SECRET=your_jwt_secret_here
+    volumes:
+      - ./services/product-service/uploads:/app/uploads
+    depends_on:
+      mongo:
+        condition: service_healthy
+    networks:
+      - podplate-network
+    restart: unless-stopped
+
+  restaurant-service:
+    build:
+      context: ./services
+      dockerfile: restaurant-service/Dockerfile
+    ports:
+      - "3005:3004"
+    environment:
+      - SERVICE_NAME=restaurant-service
+      - NODE_ENV=development
+      - FRONTEND_URL=http://localhost:3000
+      - MONGODB_URI=mongodb://admin:adminpassword@mongo:27017/podplate_restaurants?authSource=admin
+      - JWT_SECRET=your_jwt_secret_here
+    depends_on:
+      mongo:
+        condition: service_healthy
+    networks:
+      - podplate-network
+    restart: unless-stopped
+
+  cart-service:
+    build:
+      context: ./services
+      dockerfile: cart-service/Dockerfile
+    ports:
+      - "3006:3005"
+    environment:
+      - SERVICE_NAME=cart-service
+      - NODE_ENV=development
+      - FRONTEND_URL=http://localhost:3000
+      - MONGODB_URI=mongodb://admin:adminpassword@mongo:27017/podplate_cart?authSource=admin
+      - REDIS_URL=redis://:podplate_redis_pass@redis:6379
+      - JWT_SECRET=your_jwt_secret_here
+    depends_on:
+      mongo:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - podplate-network
+    restart: unless-stopped
+
+  order-service:
+    build:
+      context: ./services
+      dockerfile: order-service/Dockerfile
+    ports:
+      - "3007:3006"
+    environment:
+      - SERVICE_NAME=order-service
+      - NODE_ENV=development
+      - FRONTEND_URL=http://localhost:3000
+      - MONGODB_URI=mongodb://admin:adminpassword@mongo:27017/podplate_orders?authSource=admin
+      - JWT_SECRET=your_jwt_secret_here
+    depends_on:
+      mongo:
+        condition: service_healthy
+    networks:
+      - podplate-network
+    restart: unless-stopped
+
+  payment-service:
+    build:
+      context: ./services
+      dockerfile: payment-service/Dockerfile
+    ports:
+      - "3008:3007"
+    environment:
+      - SERVICE_NAME=payment-service
+      - NODE_ENV=development
+      - FRONTEND_URL=http://localhost:3000
+      - MONGODB_URI=mongodb://admin:adminpassword@mongo:27017/podplate_payments?authSource=admin
+      - JWT_SECRET=your_jwt_secret_here
+    depends_on:
+      mongo:
+        condition: service_healthy
+    networks:
+      - podplate-network
+    restart: unless-stopped
+
+  notification-service:
+    build:
+      context: ./services
+      dockerfile: notification-service/Dockerfile
+    ports:
+      - "3009:3008"
+    environment:
+      - SERVICE_NAME=notification-service
+      - NODE_ENV=development
+      - FRONTEND_URL=http://localhost:3000
+      - MONGODB_URI=mongodb://admin:adminpassword@mongo:27017/podplate_notifications?authSource=admin
+      - REDIS_URL=redis://:podplate_redis_pass@redis:6379
+      - JWT_SECRET=your_jwt_secret_here
+    depends_on:
+      mongo:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - podplate-network
+    restart: unless-stopped
+
+  mongo:
+    image: mongo:7.0
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+      - ./mongo-init:/docker-entrypoint-initdb.d
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=adminpassword
+    networks:
+      - podplate-network
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+    restart: unless-stopped
+
+  redis:
+    image: redis:7.2-alpine
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes --requirepass podplate_redis_pass
+    volumes:
+      - redis_data:/data
+    networks:
+      - podplate-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "podplate_redis_pass", "--no-auth-warning", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  mongo_data:
+  redis_data:
+
+networks:
+  podplate-network:
+    driver: bridge
