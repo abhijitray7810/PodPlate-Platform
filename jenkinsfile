@@ -60,6 +60,7 @@ pipeline {
                 dir('frontend') {
                     sh '''
                         npm install
+                        NODE_ENV=development npm ci
 
                         echo "📦 Installing missing devDependencies for build & test..."
                         npm install --save-dev \
