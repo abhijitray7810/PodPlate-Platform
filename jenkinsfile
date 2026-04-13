@@ -52,7 +52,7 @@ pipeline {
         stage('Install Root Dependencies') {
             steps {
                 echo '📦 Installing root dependencies...'
-                sh 'npm install'
+                sh 'npm ci --prefer-offline || npm install'
             }
         }
 
