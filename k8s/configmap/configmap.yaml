@@ -1,0 +1,38 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: podplate-config
+  namespace: podplate
+data:
+  NODE_ENV: "production"
+  FRONTEND_URL: "http://frontend-service:3000"
+
+  # Service URLs (internal cluster DNS)
+  AUTH_SERVICE_URL: "http://auth-service:3001"
+  USER_SERVICE_URL: "http://user-service:3002"
+  PRODUCT_SERVICE_URL: "http://product-service:3003"
+  RESTAURANT_SERVICE_URL: "http://restaurant-service:3004"
+  CART_SERVICE_URL: "http://cart-service:3005"
+  ORDER_SERVICE_URL: "http://order-service:3006"
+  PAYMENT_SERVICE_URL: "http://payment-service:3007"
+  NOTIFICATION_SERVICE_URL: "http://notification-service:3008"
+
+  # Database hosts
+  MONGO_HOST: "mongodb-service"
+  MONGO_PORT: "27017"
+  REDIS_HOST: "redis-service"
+  REDIS_PORT: "6379"
+
+  # MongoDB URIs per service
+  MONGODB_URI_AUTH:         "mongodb://admin:$(MONGO_PASSWORD)@mongodb-service:27017/podplate_auth?authSource=admin"
+  MONGODB_URI_USER:         "mongodb://admin:$(MONGO_PASSWORD)@mongodb-service:27017/podplate_users?authSource=admin"
+  MONGODB_URI_PRODUCT:      "mongodb://admin:$(MONGO_PASSWORD)@mongodb-service:27017/podplate_products?authSource=admin"
+  MONGODB_URI_RESTAURANT:   "mongodb://admin:$(MONGO_PASSWORD)@mongodb-service:27017/podplate_restaurants?authSource=admin"
+  MONGODB_URI_CART:         "mongodb://admin:$(MONGO_PASSWORD)@mongodb-service:27017/podplate_cart?authSource=admin"
+  MONGODB_URI_ORDER:        "mongodb://admin:$(MONGO_PASSWORD)@mongodb-service:27017/podplate_orders?authSource=admin"
+  MONGODB_URI_PAYMENT:      "mongodb://admin:$(MONGO_PASSWORD)@mongodb-service:27017/podplate_payments?authSource=admin"
+  MONGODB_URI_NOTIFICATION: "mongodb://admin:$(MONGO_PASSWORD)@mongodb-service:27017/podplate_notifications?authSource=admin"
+
+  # Next.js
+  NEXT_PUBLIC_API_URL: "http://api-gateway-service:3000"
+  NEXT_PUBLIC_API_GATEWAY_URL: "http://api-gateway-service:3000"
