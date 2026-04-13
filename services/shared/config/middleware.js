@@ -35,7 +35,6 @@ export const corsConfig = cors({
     'Accept',
     'Origin',
     'X-Service-Key'
-    
   ],
   exposedHeaders: ['X-Total-Count', 'X-Page-Count']
 });
