@@ -267,13 +267,6 @@ pipeline {
         // STAGE 13: Push Docker Images
         // ─────────────────────────────────────────────
         stage('Push Docker Images') {
-            when {
-                anyOf {
-                    branch 'main'
-                    branch 'master'
-                    branch 'develop'
-                }
-            }
             steps {
                 echo '📤 Pushing Docker images to registry...'
                 script {
