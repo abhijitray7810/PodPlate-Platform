@@ -58,22 +58,7 @@ pipeline {
             steps {
                 echo '📦 Installing frontend dependencies...'
                 dir('frontend') {
-                    sh '''
-                        npm install
-                        NODE_ENV=development npm ci
-
-                        echo "📦 Installing missing devDependencies for build & test..."
-                        npm install --save-dev \
-                            tailwindcss \
-                            typescript \
-                            @types/node \
-                            @types/react \
-                            @types/react-dom \
-                            vitest \
-                            @vitejs/plugin-react \
-                            @testing-library/react \
-                            @testing-library/jest-dom
-                    '''
+                    sh 'NODE_ENV=development npm ci'
                 }
             }
         }
