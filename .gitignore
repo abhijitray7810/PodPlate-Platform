@@ -120,4 +120,5 @@ build/
 *.zip
 
 # MongoDB dumps
-dump/
+dump/node_modules/
+/package-lock.json
