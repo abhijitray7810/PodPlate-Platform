@@ -47,14 +47,6 @@ pipeline {
         }
 
         // ─────────────────────────────────────────────
-        // STAGE 3: Install Root Dependencies
-        // ─────────────────────────────────────────────
-        stage('Install Root Dependencies') {
-            steps {
-                echo '📦 Installing root dependencies...'
-                sh 'npm ci --prefer-offline || npm install'
-            }
-        }
 
         // ─────────────────────────────────────────────
         // STAGE 4: Install Frontend Dependencies
