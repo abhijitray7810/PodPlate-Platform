@@ -39,26 +39,39 @@ spec:
               command:
                 - mongosh
                 - --quiet
-                - --eval
-                - "db.runCommand('ping').ok"
-            initialDelaySeconds: 30
+                - "--username"
+                - "admin"
+                - "--password"
+                - "adminpassword"
+                - "--authenticationDatabase"
+                - "admin"
+                - "--eval"
+                - "db.runCommand({ ping: 1 }).ok"
+            initialDelaySeconds: 60
             periodSeconds: 10
-            timeoutSeconds: 5
+            timeoutSeconds: 20
           readinessProbe:
             exec:
               command:
                 - mongosh
+                - "--username"
+                - "admin"
                 - --quiet
-                - --eval
-                - "db.runCommand('ping').ok"
-            initialDelaySeconds: 15
-            periodSeconds: 5
+                - "--password"
+                - "adminpassword"
+                - "--authenticationDatabase"
+                - "admin"
+                - "--eval"
+                - "db.runCommand({ ping: 1 }).ok"
+            initialDelaySeconds: 30
+            timeoutSeconds: 10
+            periodSeconds: 10
           resources:
             requests:
-              memory: "256Mi"
+              memory: "512Mi"
               cpu: "250m"
             limits:
-              memory: "512Mi"
+              memory: "1Gi"
               cpu: "500m"
       volumes:
         - name: mongodb-data
