@@ -117,7 +117,6 @@ spec:
       targetPort: 3000
   type: ClusterIP
 ---
-
 # ── Auth Service ───────────────────────────────────────────
 apiVersion: apps/v1
 kind: Deployment
@@ -211,7 +210,6 @@ spec:
       targetPort: 3001
   type: ClusterIP
 ---
-
 # ── User Service ───────────────────────────────────────────
 apiVersion: apps/v1
 kind: Deployment
@@ -293,7 +291,6 @@ spec:
       targetPort: 3002
   type: ClusterIP
 ---
-
 # ── Product Service ────────────────────────────────────────
 apiVersion: apps/v1
 kind: Deployment
@@ -381,7 +378,6 @@ spec:
       targetPort: 3003
   type: ClusterIP
 ---
-
 # ── Restaurant Service ─────────────────────────────────────
 apiVersion: apps/v1
 kind: Deployment
@@ -463,7 +459,6 @@ spec:
       targetPort: 3004
   type: ClusterIP
 ---
-
 # ── Cart Service ───────────────────────────────────────────
 apiVersion: apps/v1
 kind: Deployment
@@ -552,7 +547,6 @@ spec:
       targetPort: 3005
   type: ClusterIP
 ---
-
 # ── Order Service ──────────────────────────────────────────
 apiVersion: apps/v1
 kind: Deployment
@@ -634,7 +628,6 @@ spec:
       targetPort: 3006
   type: ClusterIP
 ---
-
 # ── Payment Service ────────────────────────────────────────
 apiVersion: apps/v1
 kind: Deployment
@@ -716,7 +709,6 @@ spec:
       targetPort: 3007
   type: ClusterIP
 ---
-
 # ── Notification Service ───────────────────────────────────
 apiVersion: apps/v1
 kind: Deployment
