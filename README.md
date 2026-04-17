@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![PodPlate Architecture](assets/workflow-diagram.png)
+![PodPlate Architecture](https://github.com/abhijitray7810/PodPlate-Platform/blob/ccd6e029195706385a47b7beb5605f77c48581bb/Project%20Workflow%20Diagram.png)
 
 **Cloud-native food e-commerce platform powered by self-healing Kubernetes microservices.**  
 Features auto-scaling, Istio service mesh, event-driven architecture, Jenkins + GitHub Actions CI/CD, and full observability stack.
@@ -34,27 +34,7 @@ Features auto-scaling, Istio service mesh, event-driven architecture, Jenkins + 
 
 ## 🏗️ Architecture Overview
 
-```
- User
-  │
-  ▼
-┌──────────────┐     ┌─────────────────┐     ┌─────────────────────────┐
-│  Next.js 16  │────▶│   API Gateway   │────▶│   Microservices         │
-│  Frontend    │     │   :3001         │     │   auth-service    :3002  │
-│  :3000       │     └─────────────────┘     │   user-service    :3003  │
-└──────────────┘                             │   product-service :3004  │
-                                             │   restaurant      :3005  │
-                                             │   cart-service    :3006  │
-                                             │   order-service   :3007  │
-                                             │   payment-service :3008  │
-                                             │   notification    :3009  │
-                                             └─────────────────────────┘
-                                                        │
-                                         ┌──────────────┴──────────────┐
-                                         │  MongoDB :27017             │
-                                         │  Redis   :6379              │
-                                         └─────────────────────────────┘
-```
+
 
 **CI/CD Flow:**
 ```
