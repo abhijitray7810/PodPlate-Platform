@@ -825,7 +825,7 @@ rm -rf /home/abhi/.jenkins/workspace/PodPlate-Platform-ci
 ---
 
 ## 🐳 Docker Hub Images
-
+![image](https://github.com/abhijitray7810/PodPlate-Platform/blob/7cfed5d5eac7a27c8de3c35a52dc6bb935cb6e53/assets/Screenshot%202026-04-13%20160318.png)
 All 10 images are public on Docker Hub:
 
 ```bash
