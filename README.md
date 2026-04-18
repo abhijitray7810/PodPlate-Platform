@@ -41,7 +41,7 @@ Features auto-scaling, Istio service mesh, event-driven architecture, Jenkins + 
 Code Push → GitHub → Jenkins Pipeline (16 stages) → Docker Hub → Kubernetes Cluster
                   └→ GitHub Actions (9 jobs) ──────────────────────────▶
 ```
-
+![image]()
 ---
 
 ## 🛠️ Tech Stack
@@ -65,7 +65,7 @@ Code Push → GitHub → Jenkins Pipeline (16 stages) → Docker Hub → Kuberne
 | OS | Ubuntu 24 (WSL2) | — |
 
 ---
-
+![image]()
 ## 📁 Project Structure
 
 ```
@@ -121,7 +121,7 @@ PodPlate-Platform/
 ```
 
 ---
-
+![image]()
 ## 🚀 Installation & Setup
 
 ### Prerequisites
@@ -206,7 +206,7 @@ done
 ---
 
 ## 🔄 CI/CD Pipeline
-
+![image]()
 ### Jenkins Pipeline (16 Stages)
 
 ```
