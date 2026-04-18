@@ -362,7 +362,7 @@ kubectl get all -n podplate
 ---
 
 ## 📊 Observability Stack
-![image](https://github.com/abhijitray7810/PodPlate-Platform/blob/eb130ead5f65eba82d75a1414323a2c81b6ee0a1/assets/Screenshot%202026-04-14%20231200.png)
+![image](https://github.com/abhijitray7810/PodPlate-Platform/blob/220ac37e08b76c23392314b3778ca9f00660bc6b/assets/Screenshot%202026-04-14%20220557.png)
 ### Prometheus + Grafana
 
 ```bash
@@ -374,12 +374,12 @@ helm repo update
 helm install monitoring prometheus-community/kube-prometheus-stack \
   --namespace monitoring \
   --create-namespace
-![image]()
+
 # Access Grafana dashboard
 kubectl port-forward svc/monitoring-grafana 3000:80 -n monitoring
 # Default login: admin / prom-operator
 ```
-
+![image](https://github.com/abhijitray7810/PodPlate-Platform/blob/eb130ead5f65eba82d75a1414323a2c81b6ee0a1/assets/Screenshot%202026-04-14%20231200.png)
 ---
 ![image](https://github.com/abhijitray7810/PodPlate-Platform/blob/cb7458d17f9a641e049d365f6bfa3d3dbd355d16/assets/Screenshot%202026-04-14%20222259.png)
 ## 🐛 Problems Faced & Solutions
