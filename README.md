@@ -206,7 +206,7 @@ done
 ---
 
 ## 🔄 CI/CD Pipeline
-![image]()
+![image](https://github.com/abhijitray7810/PodPlate-Platform/blob/a6022e88b729179f79e3aec48d488847e8b7975c/assets/Screenshot%202026-04-13%20160051.png)
 ### Jenkins Pipeline (16 Stages)
 
 ```
