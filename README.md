@@ -374,14 +374,14 @@ helm repo update
 helm install monitoring prometheus-community/kube-prometheus-stack \
   --namespace monitoring \
   --create-namespace
-
+![image]()
 # Access Grafana dashboard
 kubectl port-forward svc/monitoring-grafana 3000:80 -n monitoring
 # Default login: admin / prom-operator
 ```
 
 ---
-
+![image](https://github.com/abhijitray7810/PodPlate-Platform/blob/cb7458d17f9a641e049d365f6bfa3d3dbd355d16/assets/Screenshot%202026-04-14%20222259.png)
 ## 🐛 Problems Faced & Solutions
 
 This section documents every real problem encountered during the build, with exact error messages and fixes applied.
