@@ -362,7 +362,7 @@ kubectl get all -n podplate
 ---
 
 ## 📊 Observability Stack
-
+![image](https://github.com/abhijitray7810/PodPlate-Platform/blob/eb130ead5f65eba82d75a1414323a2c81b6ee0a1/assets/Screenshot%202026-04-14%20231200.png)
 ### Prometheus + Grafana
 
 ```bash
