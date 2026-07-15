@@ -1,6 +1,6 @@
 # 🍽️ PodPlate Platform
  
-<div align="center">
+<div align="center"> 
 
 ![PodPlate Architecture](https://github.com/abhijitray7810/PodPlate-Platform/blob/ccd6e029195706385a47b7beb5605f77c48581bb/Project%20Workflow%20Diagram.png)
 
