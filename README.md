@@ -128,7 +128,7 @@ PodPlate-Platform/
 ```bash
 # Install Docker
 sudo apt update
-sudo apt install -y docker.io docker-compose-plugin
+sudo apt install -y docker.io docker-compose-plugin 
 sudo usermod -aG docker $USER
 
 # Install Node.js 20
