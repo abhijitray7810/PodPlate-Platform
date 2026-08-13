@@ -105,7 +105,7 @@ PodPlate-Platform/
 ├── k8s/ 
 │   ├── namespace/                 # podplate namespace
 │   ├── configmap/                 # Non-secret environment config
-│   ├── secrets/                   # JWT, DB, Redis secrets
+│   ├── secrets/                   # JWT, DB, Redis secrets 
 │   ├── storage/                   # PVCs for MongoDB and Redis
 │   ├── mongodb/                   # MongoDB StatefulSet + Service
 │   ├── redis/                     # Redis Deployment + Service
