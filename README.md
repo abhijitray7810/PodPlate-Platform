@@ -4,7 +4,7 @@
 
 ![PodPlate Architecture](https://github.com/abhijitray7810/PodPlate-Platform/blob/ccd6e029195706385a47b7beb5605f77c48581bb/Project%20Workflow%20Diagram.png)
 
-**Cloud-native food e-commerce platform powered by self-healing Kubernetes microservices.**  
+**Cloud-native food e-commerce platform powered by self-healing Kubernetes microservices.**
 Features auto-scaling, Istio service mesh, event-driven architecture, Jenkins + GitHub Actions CI/CD, and full observability stack.
 
 [![GitHub Stars](https://img.shields.io/github/stars/abhijitray7810/PodPlate-Platform?style=flat-square)](https://github.com/abhijitray7810/PodPlate-Platform/stargazers)
