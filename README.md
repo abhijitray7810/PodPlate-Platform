@@ -9,7 +9,7 @@ Features auto-scaling, Istio service mesh, event-driven architecture, Jenkins + 
 
 [![GitHub Stars](https://img.shields.io/github/stars/abhijitray7810/PodPlate-Platform?style=flat-square)](https://github.com/abhijitray7810/PodPlate-Platform/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
-![Docker](https://img.shields.io/badge/Docker-27.5.1-blue?style=flat-square&logo=docker)
+![Docker](https://img.shields.io/badge/Docker-27.5.1-blue?style=flat-square&logo=docker) 
 ![Kubernetes](https://img.shields.io/badge/Kubernetes-1.28-326CE5?style=flat-square&logo=kubernetes)
 ![Jenkins](https://img.shields.io/badge/Jenkins-2.516-D24939?style=flat-square&logo=jenkins)
 ![Next.js](https://img.shields.io/badge/Next.js-16.2-black?style=flat-square&logo=next.js)
