@@ -301,7 +301,7 @@ kubectl apply -f k8s/secrets/secrets.yaml
 kubectl apply -f k8s/configmap/configmap.yaml
 kubectl apply -f k8s/storage/pvc.yaml
 kubectl apply -f k8s/mongodb/mongodb.yaml
-kubectl apply -f k8s/redis/redis.yaml
+kubectl apply -f k8s/redis/redis.yaml 
 
 # Wait for databases
 kubectl wait --for=condition=ready pod -l app=mongodb -n podplate --timeout=120s
