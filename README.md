@@ -681,7 +681,7 @@ kubectl logs deployment/auth-service -n podplate --tail 30
 kubectl describe pod <pod-name> -n podplate
 ```
 
-**Fix:**
+**Fix:** 
 ```bash
 # Rebuild from current source locally
 docker compose down
