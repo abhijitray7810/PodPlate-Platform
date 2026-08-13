@@ -82,7 +82,7 @@ PodPlate-Platform/
 │   ├── components/
 │   │   └── features/
 │   ├── store/                     # Zustand state stores
-│   │   ├── authStore.ts
+│   │   ├── authStore.ts 
 │   │   └── cartStore.ts
 │   ├── Dockerfile
 │   ├── package.json
