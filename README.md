@@ -47,7 +47,7 @@ Code Push → GitHub → Jenkins Pipeline (16 stages) → Docker Hub → Kuberne
 
 | Category | Technology | Version |
 |---|---|---|
-| Frontend | Next.js, TypeScript, Tailwind CSS | 16.2.3 |
+| Frontend | Next.js, TypeScript, Tailwind CSS | 16.2.3 | 
 | State management | Zustand, React Query | latest |
 | Backend | Node.js, Express.js (ESM) | 20 LTS | 
 | Database | MongoDB | 7.0 |
