@@ -872,7 +872,7 @@ NEXT_PUBLIC_API_GATEWAY_URL=http://localhost:3001
 - Docker Hub: [abhijitray](https://hub.docker.com/u/abhijitray)
 - LinkedIn: [Abhijit Ray](https://linkedin.com/in/abhijit-ray)
 
----
+--- 
 
 ## ⭐ Show Your Support
 
