@@ -393,7 +393,7 @@ This section documents every real problem encountered during the build, with exa
 **Stage:** Docker Login  
 
 **Error:**
-```
+``` 
 ERROR: docker-hub-username
 org.jenkinsci.plugins.workflow.steps.MissingContextVariableException
 ```
