@@ -180,7 +180,7 @@ curl http://localhost:3000          # Frontend
 ### Install Frontend Dependencies
 
 ```bash
-cd frontend
+cd frontend 
 NODE_ENV=development npm ci
 npm run dev        # dev server on :3000
 npm run build      # production build
