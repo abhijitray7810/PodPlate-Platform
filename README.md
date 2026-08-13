@@ -102,7 +102,7 @@ PodPlate-Platform/
 │   ├── order-service/             # Order processing
 │   ├── payment-service/           # Payment handling
 │   └── notification-service/      # Email/push notifications
-├── k8s/
+├── k8s/ 
 │   ├── namespace/                 # podplate namespace
 │   ├── configmap/                 # Non-secret environment config
 │   ├── secrets/                   # JWT, DB, Redis secrets
