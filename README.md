@@ -36,7 +36,7 @@ Features auto-scaling, Istio service mesh, event-driven architecture, Jenkins + 
 
  
 **CI/CD Flow:**
-```
+``` 
 Code Push → GitHub → Jenkins Pipeline (16 stages) → Docker Hub → Kubernetes Cluster
                   └→ GitHub Actions (9 jobs) ──────────────────────────▶
 ```
