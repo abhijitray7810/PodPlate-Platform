@@ -24,7 +24,7 @@ Features auto-scaling, Istio service mesh, event-driven architecture, Jenkins + 
 - [Tech Stack](#-tech-stack)
 - [Project Structure](#-project-structure)
 - [Installation & Setup](#-installation--setup)
-- [CI/CD Pipeline](#-cicd-pipeline)
+- [CI/CD Pipeline](#-cicd-pipeline) 
 - [Kubernetes Deployment](#-kubernetes-deployment)
 - [Observability Stack](#-observability-stack)
 - [Problems Faced & Solutions](#-problems-faced--solutions)
